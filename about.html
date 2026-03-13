@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - Alexander</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">Alex</a>
+    <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="Project.html" class="nav-link">Projects</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- ABOUT SECTION -->
+    <section class="container">
+        <div class="about-content">
+
+            <div class="about-image">
+                <img src="profile2.jpg" onclick="openModal(this.src)" alt="Alexander">
+            </div>
+
+            <div class="about-text">
+                <h1 class="section-title">Alexander B. Balisado</h1>
+                <h3 class="section-subtitle">Aspiring Global Explorer</h3>
+
+                <p>
+                    I aspire to travel the world and explore beyond limits,
+                    constantly seeking growth and deeper purpose.
+                </p>
+
+                <div class="identity-info">
+
+    <div class="identity-header" onclick="toggleIdentity()">
+      <p><strong>IINFORMATION:</strong></p>
+      <br>
+        <p><strong>Full Name:</strong> Alexander B. Balisado</p>
+        <p><strong>Role:</strong> Student / Web Dev</p>
+        <br>
+        <p><small>click to expand</small>▼</p>
+    </div>
+
+    <div id="identityDetails" class="identity-details">
+
+        
+        <p><strong>Interests:</strong> Technology, Travel, Innovation, Space Exploration</p>
+        <p><strong>Location:</strong> Crossing Luna, Esperanza</p>
+
+        <!-- extra info -->
+        <p><strong>Goal:</strong> To experience everything</p>
+        <p><strong>Skills:</strong> HTML, CSS, Basic JavaScript</p>
+
+    </div>
+
+</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MINI GALLERY -->
+    <section class="mini-gallery container">
+        <h2 class="section-title">Gallery</h2>
+
+        <div class="mini-gallery-grid">
+
+            <div class="mini-item fade-in">
+                <img src="gallery1.jpg" onclick="openModal(this.src)">
+                <p>Exploration Moment</p>
+            </div>
+
+            <div class="mini-item fade-in">
+                <img src="gallery3.jpg" onclick="openModal(this.src)">
+                <p>Innovation Event</p>
+            </div>
+
+            <div class="mini-item fade-in">
+                <img src="gallery2.jpg" onclick="openModal(this.src)">
+                <p>Travel Experience</p>
+            </div>
+
+            <div class="mini-item fade-in">
+                <img src="gallery4.jpg" onclick="openModal(this.src)">
+                <p>Creative Project</p>
+            </div>
+
+            <div class="mini-item fade-in">
+                <img src="gallery5.jpg" onclick="openModal(this.src)">
+                <p>Space Interest</p>
+            </div>
+
+            <div class="mini-item fade-in">
+                <img src="gallery6.jpg" onclick="openModal(this.src)">
+                <p>Hobby</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- LIGHTBOX MODAL -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <img id="modalImg">
+</div>
+
+<script>
+function openModal(src) {
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+/* Fade-in animation on scroll */
+const faders = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(el => observer.observe(el));
+
+function toggleIdentity(){
+    const info = document.getElementById("identityDetails");
+    info.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alexander Portfolio</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">Alex</a>
+    <nav>
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="Project.html" class="nav-link">Projects</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="home container">
+
+        <!-- IMAGE SECTION -->
+        <div class="home-img" onclick="openModal(getCurrentImage())">
+            <img src="profile1.jpg" class="img-default" alt="Alexander">
+            <img src="profile2.jpg" class="img-hover" alt="Alexander hover">
+        </div>
+
+        <!-- TEXT SECTION -->
+        <div class="home-content">
+            <h1>Hi, I'm <span>Alexander</span></h1>
+            <h3>Web Developer | Designer | Student</h3>
+        </div>
+
+    </section>
+</main>
+
+<!-- LIGHTBOX MODAL -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <img id="modalImg">
+</div>
+<script>
+function getCurrentImage() {
+    const hoverImg = document.querySelector('.img-hover');
+    const defaultImg = document.querySelector('.img-default');
+
+    const hoverVisible = window.getComputedStyle(hoverImg).opacity === "1";
+    return hoverVisible ? hoverImg.src : defaultImg.src;
+}
+
+function openModal(src) {
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
